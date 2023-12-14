@@ -1,14 +1,13 @@
-export const fetchUserList = async () => {
-  try {
-    const response = await fetch("");
-    if (!response.ok) {
-      throw new Error(`HTTP error! Status: ${response.status}`);
-    }
+export const getAPI = async () => {
+  const data = await fetch("https://dummyjson.com/products");
+  const userList = await data.json();
+  console.log(userList);
+  return userList;
+};
 
-    const userList = await response.json();
-    return userList;
-  } catch (error) {
-    console.error("Error fetching user list:", error);
-    throw error;
-  }
+export const postAPI = async () => {
+  const data = await fetch("https://dummyjson.com/products/add'");
+  const userList = await data.json();
+  console.log(userList);
+  return userList;
 };
